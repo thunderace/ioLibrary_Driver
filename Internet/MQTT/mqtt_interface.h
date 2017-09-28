@@ -211,7 +211,7 @@ int main(void)
 
 #ifndef __MQTT_INTERFACE_H_
 #define __MQTT_INTERFACE_H_
-
+#include "socket.h"
 /*
  * @brief MQTT MilliTimer handler
  * @note MUST BE register to your system 1m Tick timer handler
@@ -251,8 +251,8 @@ int TimerLeftMS(Timer*);
 /*
  * @brief Network interface porting
  */
-int w5x00_read(Network*, unsigned char*, int);
-int w5x00_write(Network*, unsigned char*, int);
+int w5x00_read(Network*, unsigned char*, int, int);
+int w5x00_write(Network*, unsigned char*, int, int);
 void w5x00_disconnect(Network*);
 void NewNetwork(Network* n, int sn);
 int ConnectNetwork(Network*, char*, int);
